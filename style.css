@@ -1,0 +1,237 @@
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0;
+    font-family:'Courier New', Courier, monospace;
+
+    /* animated gradient background */
+    background:linear-gradient(-45deg,#ff9de2,#d6b3ff,#ffc6ec,#b6e3ff);
+    background-size:400% 400%;
+    animation:gradientBG 12s ease infinite;
+}
+
+@keyframes gradientBG{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+
+/*MAIN CARD (GLASSMORPHISM STYLE) */
+
+.Password-Container{
+    width:520px;
+    padding:30px;
+    border-radius:16px;
+
+    background:rgba(255,255,255,0.25);
+    backdrop-filter:blur(12px);
+
+    box-shadow:0 10px 40px rgba(0,0,0,0.2);
+
+    transition:0.4s ease;
+}
+
+.Password-Container:hover{
+    transform:translateY(-8px);
+}
+
+
+/* title */
+
+h2{
+    margin-bottom:20px;
+    letter-spacing:2px;
+}
+
+
+/*  INPUT CONTAINER */
+
+.input-container{
+    border:2px solid rgba(0,0,0,0.2);
+    padding:12px;
+    border-radius:12px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    transition:0.3s ease;
+    background:rgba(255,255,255,0.5);
+}
+
+.input-container:focus-within{
+    box-shadow:0 0 15px rgba(0,0,0,0.2);
+    border-color:black;
+}
+
+
+/*  INPUT */
+
+.input{
+    border:none;
+    outline:none;
+    background:transparent;
+    font-size:24px;
+    letter-spacing:4px;
+    width:100%;
+}
+
+
+/*  COPY ICON */
+
+.fa-copy{
+    cursor:pointer;
+    opacity:.5;
+    transition:0.25s ease;
+}
+
+.fa-copy:hover{
+    opacity:1;
+    transform:scale(1.3) rotate(8deg);
+}
+
+
+/*  GENERATE BUTTON */
+
+.btn{
+    margin-top:15px;
+    background:rgba(0, 0, 0, 0.39);
+    color:white;
+    border:none;
+    padding:12px 24px;
+    border-radius:8px;
+    font-size:18px;
+    cursor:pointer;
+    transition:all 0.25s ease;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 6px 18px rgba(0,0,0,0.3);
+}
+
+.btn:active{
+    transform:scale(0.92);
+}
+
+
+/*  TOAST ALERT */
+
+.alert-container{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+
+    width:280px;
+    height:55px;
+
+    background:rgba(131, 126, 130, 0.8);
+    color:white;
+
+    border-radius:10px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:18px;
+
+    transform:translateX(0);
+    opacity:1;
+
+    transition:0.4s ease;
+
+    backdrop-filter:blur(8px);
+}
+
+.alert-container.active{
+    transform:translateX(350px);
+    opacity:0;
+}
+
+
+/*  PASSWORD GENERATE ANIMATION  */
+
+.generate-anim{
+    animation:pulse 0.35s ease;
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.05);}
+    100%{transform:scale(1);}
+}
+
+/* PARTICLES  */
+
+.particles{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    z-index:-1;
+}
+
+.particles span{
+    position:absolute;
+    display:block;
+    width:15px;
+    height:15px;
+    background:rgba(255,255,255,0.5);
+    border-radius:50%;
+    animation:float 20s linear infinite;
+}
+
+.particles span:nth-child(1){ left:10%; animation-duration:12s;}
+.particles span:nth-child(2){ left:20%; animation-duration:18s;}
+.particles span:nth-child(3){ left:35%; animation-duration:15s;}
+.particles span:nth-child(4){ left:50%; animation-duration:20s;}
+.particles span:nth-child(5){ left:65%; animation-duration:10s;}
+.particles span:nth-child(6){ left:75%; animation-duration:17s;}
+.particles span:nth-child(7){ left:85%; animation-duration:14s;}
+.particles span:nth-child(8){ left:95%; animation-duration:19s;}
+
+@keyframes float{
+    0%{
+        transform:translateY(100vh) scale(0);
+        opacity:0;
+    }
+    50%{
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-10vh) scale(1);
+        opacity:0;
+    }
+}
+
+.Password-Container{
+    animation:cardEnter 0.8s cubic-bezier(.17,.67,.3,1.33);
+}
+
+@keyframes cardEnter{
+    0%{
+        transform:translateY(40px) scale(0.9);
+        opacity:0;
+    }
+    100%{
+        transform:translateY(0) scale(1);
+        opacity:1;
+    }
+}
+
+
+.copy-bounce{
+    animation:copyBounce 0.4s ease;
+}
+
+@keyframes copyBounce{
+    0%{ transform:scale(1);}
+    40%{ transform:scale(1.4);}
+    70%{ transform:scale(0.9);}
+    100%{ transform:scale(1);}
+}
